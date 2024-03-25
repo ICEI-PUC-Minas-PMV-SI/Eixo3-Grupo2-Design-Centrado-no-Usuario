@@ -9,10 +9,10 @@ const db = new sqlite3.Database('database.db');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Configuração para servir arquivos estáticos da pasta src
+
 app.use(express.static(path.join(__dirname, 'src')));
 
-// Rota para cadastrar um novo usuário
+
 app.post('/cadastro', (req, res) => {
     const { nome, data_nascimento, email, senha, telefone } = req.body;
 
@@ -27,7 +27,7 @@ app.post('/cadastro', (req, res) => {
     });
 });
 
-// Rota para servir o arquivo index.html
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'index.html'));
 });
